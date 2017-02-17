@@ -1,6 +1,6 @@
 name 'npm'
-maintainer 'The Authors'
-maintainer_email 'you@example.com'
+maintainer 'Sean Holden'
+maintainer_email 'sean@seanholden.net'
 license 'all_rights'
 description 'Installs/Configures npm'
 long_description 'Installs/Configures npm'
