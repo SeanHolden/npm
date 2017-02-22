@@ -36,5 +36,27 @@ describe 'npm::default' do
         expect(chef_run).to install_package('npm')
       end
     end
+
+    describe 'directory' do
+      it 'creates new .npm-global direcory' do
+        expect(chef_run).to create_directory('/home/vagrant/.npm-global').
+          with(
+            owner: 'vagrant',
+            group: 'vagrant',
+            mode: '755'
+          )
+      end
+    end
+
+    describe 'execute' do
+      it 'sets npm prefix' do
+        expect(chef_run).to run_execute(
+          "npm config set prefix '/home/vagrant/.npm-global'"
+        ).with(
+          user: 'vagrant',
+          cwd: '/home/vagrant'
+        )
+      end
+    end
   end
 end
